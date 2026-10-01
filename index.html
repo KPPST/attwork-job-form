@@ -2,11 +2,18 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ATWORK สมัครงาน</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <title>ATWORK - สมัครงาน</title>
+
+  <!-- LINE LIFF SDK -->
+  <script
+    src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+  </script>
 
   <style>
     * {
@@ -17,20 +24,24 @@
       margin: 0;
       padding: 20px;
       background: #f4f7fb;
-      font-family: Arial, "Noto Sans Thai", sans-serif;
       color: #1f2937;
+      font-family:
+        Arial,
+        "Noto Sans Thai",
+        sans-serif;
     }
 
     .container {
+      width: 100%;
       max-width: 520px;
-      margin: auto;
+      margin: 0 auto;
     }
 
     .card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 20px;
       padding: 24px;
-      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     }
 
     .brand {
@@ -41,21 +52,42 @@
     }
 
     .title {
-      text-align: center;
       margin-top: 6px;
+      text-align: center;
       font-size: 22px;
       font-weight: 700;
     }
 
     .subtitle {
-      text-align: center;
       margin: 8px 0 24px;
+      text-align: center;
       color: #6b7280;
       font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .status {
+      margin-bottom: 20px;
+      padding: 11px 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 13px;
+      background: #f8fafc;
+      color: #64748b;
+    }
+
+    .status.success {
+      background: #f0fdf4;
+      color: #166534;
+    }
+
+    .status.error {
+      background: #fef2f2;
+      color: #991b1b;
     }
 
     .section-title {
-      margin: 24px 0 14px;
+      margin: 25px 0 14px;
       color: #123c72;
       font-size: 17px;
       font-weight: 700;
@@ -76,239 +108,720 @@
     select {
       width: 100%;
       height: 48px;
-      padding: 0 14px;
       margin-bottom: 16px;
+      padding: 0 14px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
+      background: #ffffff;
+      color: #111827;
       font-size: 15px;
-      background: #fff;
     }
 
     input:focus,
     select:focus {
       outline: none;
       border-color: #2563eb;
+      box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
     }
 
     .resume-box {
-      padding: 15px;
+      padding: 16px;
       border: 2px dashed #cbd5e1;
       border-radius: 12px;
       background: #f8fafc;
     }
 
-    .resume-box input {
+    .resume-box input[type="file"] {
       height: auto;
-      padding: 0;
       margin: 0;
-      border: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .file-name {
+      margin-top: 8px;
+      color: #475569;
+      font-size: 12px;
     }
 
     .hint {
       margin-top: 8px;
+      color: #64748b;
       font-size: 12px;
-      color: #64748b;
+      line-height: 1.5;
     }
 
-    .status {
-      margin-bottom: 18px;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 13px;
-      background: #f8fafc;
-      color: #64748b;
-    }
-
-    button {
+    .submit-btn {
       width: 100%;
       height: 50px;
       margin-top: 22px;
-      border: 0;
+      border: none;
       border-radius: 12px;
       background: #123c72;
-      color: white;
+      color: #ffffff;
       font-size: 16px;
       font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.success {
+      background: #ecfdf5;
+      color: #166534;
+    }
+
+    .message.error {
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .profile-box {
+      display: none;
+      margin-bottom: 20px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #f8fafc;
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .profile-box.show {
+      display: block;
+    }
+
+    .profile-name {
+      font-weight: 700;
+      color: #123c72;
+    }
+
+    .note {
+      margin-top: 20px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 11px;
+      line-height: 1.6;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="card">
+  <div class="container">
 
-    <div class="brand">ATWORK</div>
+    <div class="card">
 
-    <div class="title">สมัครงาน</div>
-
-    <div class="subtitle">
-      กรุณากรอกข้อมูลสำหรับสมัครงาน
-    </div>
-
-    <div id="lineStatus" class="status">
-      กำลังเชื่อมต่อ LINE...
-    </div>
-
-    <form id="jobForm">
-
-      <input
-        type="hidden"
-        id="lineUserId"
-        name="lineUserId"
-      >
-
-      <div class="section-title">
-        ข้อมูลส่วนตัว
+      <div class="brand">
+        ATWORK
       </div>
 
-      <label>
-        ชื่อ-นามสกุล
-        <span class="required">*</span>
-      </label>
-
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="กรอกชื่อ-นามสกุล"
-        required
-      >
-
-      <label>
-        เบอร์โทรศัพท์
-        <span class="required">*</span>
-      </label>
-
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="เช่น 0812345678"
-        maxlength="10"
-        required
-      >
-
-      <div class="section-title">
-        ข้อมูลการสมัครงาน
+      <div class="title">
+        สมัครงาน
       </div>
 
-      <label>
-        สายงานที่สนใจ
-        <span class="required">*</span>
-      </label>
-
-      <select id="jobType" name="jobType" required>
-        <option value="">-- เลือกสายงาน --</option>
-        <option>ช่าง</option>
-        <option>วิศวกร</option>
-        <option>พนักงานผลิต</option>
-        <option>พนักงานคลังสินค้า</option>
-        <option>พนักงานออฟฟิศ</option>
-      </select>
-
-      <label>
-        จังหวัดที่ต้องการทำงาน
-        <span class="required">*</span>
-      </label>
-
-      <select id="province" name="province" required>
-        <option value="">-- เลือกจังหวัด --</option>
-        <option>กรุงเทพมหานคร</option>
-        <option>ชลบุรี</option>
-        <option>ระยอง</option>
-        <option>สมุทรปราการ</option>
-        <option>ฉะเชิงเทรา</option>
-        <option>ปทุมธานี</option>
-      </select>
-
-      <div class="section-title">
-        Resume
+      <div class="subtitle">
+        กรุณากรอกข้อมูลสำหรับสมัครงาน
       </div>
 
-      <div class="resume-box">
-        <label>
-          แนบ Resume
+
+      <!-- สถานะ LINE -->
+      <div
+        id="lineStatus"
+        class="status"
+      >
+        กำลังเชื่อมต่อ LINE...
+      </div>
+
+
+      <!-- Profile -->
+      <div
+        id="profileBox"
+        class="profile-box"
+      >
+        สวัสดีครับ
+        <span
+          id="profileName"
+          class="profile-name"
+        ></span>
+      </div>
+
+
+      <form id="jobForm">
+
+        <!-- เก็บ LINE User ID -->
+        <input
+          type="hidden"
+          id="lineUserId"
+          name="lineUserId"
+        >
+
+
+        <!-- ========================= -->
+        <!-- ข้อมูลส่วนตัว -->
+        <!-- ========================= -->
+
+        <div class="section-title">
+          ข้อมูลส่วนตัว
+        </div>
+
+
+        <label for="name">
+          ชื่อ-นามสกุล
+          <span class="required">*</span>
         </label>
 
         <input
-          type="file"
-          id="resume"
-          name="resume"
-          accept=".pdf,.doc,.docx"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="กรอกชื่อ-นามสกุล"
+          autocomplete="name"
+          required
         >
 
-        <div class="hint">
-          รองรับ PDF, DOC และ DOCX
+
+        <label for="phone">
+          เบอร์โทรศัพท์
+          <span class="required">*</span>
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="เช่น 0812345678"
+          maxlength="10"
+          inputmode="numeric"
+          autocomplete="tel"
+          required
+        >
+
+
+        <!-- ========================= -->
+        <!-- ข้อมูลการสมัคร -->
+        <!-- ========================= -->
+
+        <div class="section-title">
+          ข้อมูลการสมัครงาน
         </div>
+
+
+        <label for="jobType">
+          สายงานที่สนใจ
+          <span class="required">*</span>
+        </label>
+
+        <select
+          id="jobType"
+          name="jobType"
+          required
+        >
+          <option value="">
+            -- เลือกสายงาน --
+          </option>
+
+          <option value="ช่าง">
+            ช่าง
+          </option>
+
+          <option value="วิศวกร">
+            วิศวกร
+          </option>
+
+          <option value="พนักงานผลิต">
+            พนักงานผลิต
+          </option>
+
+          <option value="พนักงานคลังสินค้า">
+            พนักงานคลังสินค้า
+          </option>
+
+          <option value="พนักงานออฟฟิศ">
+            พนักงานออฟฟิศ
+          </option>
+
+          <option value="อื่น ๆ">
+            อื่น ๆ
+          </option>
+        </select>
+
+
+        <label for="province">
+          จังหวัดที่ต้องการทำงาน
+          <span class="required">*</span>
+        </label>
+
+        <select
+          id="province"
+          name="province"
+          required
+        >
+          <option value="">
+            -- เลือกจังหวัด --
+          </option>
+
+          <option>กรุงเทพมหานคร</option>
+          <option>ชลบุรี</option>
+          <option>ระยอง</option>
+          <option>สมุทรปราการ</option>
+          <option>ฉะเชิงเทรา</option>
+          <option>ปทุมธานี</option>
+          <option>พระนครศรีอยุธยา</option>
+          <option>นครปฐม</option>
+          <option>สมุทรสาคร</option>
+          <option>สระบุรี</option>
+        </select>
+
+
+        <!-- ========================= -->
+        <!-- Resume -->
+        <!-- ========================= -->
+
+        <div class="section-title">
+          Resume
+        </div>
+
+        <div class="resume-box">
+
+          <label for="resume">
+            แนบ Resume
+          </label>
+
+          <input
+            type="file"
+            id="resume"
+            name="resume"
+            accept=".pdf,.doc,.docx"
+          >
+
+          <div
+            id="fileName"
+            class="file-name"
+          >
+            ยังไม่ได้เลือกไฟล์
+          </div>
+
+          <div class="hint">
+            รองรับ PDF, DOC และ DOCX
+          </div>
+
+        </div>
+
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          id="submitBtn"
+          class="submit-btn"
+        >
+          ส่งใบสมัคร
+        </button>
+
+      </form>
+
+
+      <div
+        id="result"
+        class="message success"
+      ></div>
+
+
+      <div
+        id="error"
+        class="message error"
+      ></div>
+
+
+      <div class="note">
+        ATWORK Recruitment
       </div>
 
-      <button type="submit">
-        ส่งใบสมัคร
-      </button>
-
-    </form>
+    </div>
 
   </div>
-</div>
 
-<script>
 
-  const LIFF_ID = "2011817085-L18ZbOrm";
+  <script>
 
-  async function initLIFF() {
+    // =========================================
+    // LIFF ID
+    // =========================================
 
-    try {
+    const LIFF_ID =
+      "2011817085-L18ZbOrm";
 
-      await liff.init({
-        liffId: LIFF_ID
-      });
 
-      if (!liff.isLoggedIn()) {
+    // =========================================
+    // DOM
+    // =========================================
 
-        liff.login();
+    const lineStatus =
+      document.getElementById(
+        "lineStatus"
+      );
 
-        return;
+    const profileBox =
+      document.getElementById(
+        "profileBox"
+      );
+
+    const profileName =
+      document.getElementById(
+        "profileName"
+      );
+
+    const lineUserId =
+      document.getElementById(
+        "lineUserId"
+      );
+
+    const resumeInput =
+      document.getElementById(
+        "resume"
+      );
+
+    const fileName =
+      document.getElementById(
+        "fileName"
+      );
+
+    const form =
+      document.getElementById(
+        "jobForm"
+      );
+
+    const submitBtn =
+      document.getElementById(
+        "submitBtn"
+      );
+
+
+    // =========================================
+    // แสดงชื่อไฟล์
+    // =========================================
+
+    resumeInput.addEventListener(
+      "change",
+      function () {
+
+        if (
+          resumeInput.files &&
+          resumeInput.files.length > 0
+        ) {
+
+          fileName.textContent =
+            "ไฟล์ที่เลือก: " +
+            resumeInput.files[0].name;
+
+        } else {
+
+          fileName.textContent =
+            "ยังไม่ได้เลือกไฟล์";
+
+        }
+
       }
+    );
 
-      const profile = await liff.getProfile();
 
-      document.getElementById("lineUserId").value =
-        profile.userId;
+    // =========================================
+    // LIFF Initialization
+    // =========================================
 
-      document.getElementById("lineStatus").textContent =
-        "เชื่อมต่อ LINE เรียบร้อยแล้ว";
+    async function initLIFF() {
 
-    } catch (error) {
+      try {
 
-      console.error(error);
+        /*
+         * สำคัญ:
+         *
+         * ถ้าเปิดใน LINE LIFF Browser
+         * ไม่ต้องเรียก liff.login()
+         *
+         * ถ้าเปิดใน Browser ภายนอก
+         * และยังไม่ได้ Login ค่อยเรียก liff.login()
+         */
 
-      document.getElementById("lineStatus").textContent =
-        "ไม่สามารถเชื่อมต่อ LINE ได้";
+        await liff.init({
+          liffId: LIFF_ID
+        });
+
+
+        // -------------------------------------
+        // LIFF Browser
+        // -------------------------------------
+
+        if (liff.isInClient()) {
+
+          lineStatus.textContent =
+            "เชื่อมต่อ LINE เรียบร้อยแล้ว";
+
+          lineStatus.className =
+            "status success";
+
+        }
+
+
+        // -------------------------------------
+        // External Browser
+        // -------------------------------------
+
+        else {
+
+          if (!liff.isLoggedIn()) {
+
+            liff.login({
+              redirectUri:
+                window.location.href
+            });
+
+            return;
+
+          }
+
+          lineStatus.textContent =
+            "เข้าสู่ระบบ LINE เรียบร้อยแล้ว";
+
+          lineStatus.className =
+            "status success";
+
+        }
+
+
+        // =====================================
+        // ดึงข้อมูล Profile
+        // =====================================
+
+        const profile =
+          await liff.getProfile();
+
+
+        // เก็บ LINE User ID
+        lineUserId.value =
+          profile.userId;
+
+
+        // แสดงชื่อ
+        profileName.textContent =
+          profile.displayName || "";
+
+
+        profileBox.classList.add(
+          "show"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "LIFF Error:",
+          error
+        );
+
+        lineStatus.textContent =
+          "ไม่สามารถเชื่อมต่อ LINE ได้";
+
+        lineStatus.className =
+          "status error";
+
+        showError(
+          "ไม่สามารถเชื่อมต่อ LINE ได้ กรุณาเปิดลิงก์นี้จาก LINE อีกครั้ง"
+        );
+
+      }
 
     }
 
-  }
+
+    // =========================================
+    // Submit
+    // =========================================
+
+    form.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+        hideError();
 
 
-  document
-    .getElementById("jobForm")
-    .addEventListener("submit", function(event) {
+        // -------------------------------------
+        // ตรวจ LINE User
+        // -------------------------------------
 
-      event.preventDefault();
+        if (!lineUserId.value) {
 
-      alert(
-        "ตอนนี้แบบฟอร์มทำงานแล้วครับ\n\n" +
-        "ขั้นต่อไปเราจะเชื่อมปุ่มส่งใบสมัครกับ Candidates"
+          showError(
+            "ยังไม่พบข้อมูล LINE กรุณาเปิดแบบฟอร์มจาก LINE"
+          );
+
+          return;
+
+        }
+
+
+        // -------------------------------------
+        // ตรวจเบอร์
+        // -------------------------------------
+
+        const phone =
+          document.getElementById(
+            "phone"
+          ).value.trim();
+
+
+        if (!/^0\d{9}$/.test(phone)) {
+
+          showError(
+            "กรุณากรอกเบอร์โทรศัพท์ 10 หลัก เช่น 0812345678"
+          );
+
+          return;
+
+        }
+
+
+        // -------------------------------------
+        // ตรวจสายงาน
+        // -------------------------------------
+
+        if (
+          !document.getElementById(
+            "jobType"
+          ).value
+        ) {
+
+          showError(
+            "กรุณาเลือกสายงานที่สนใจ"
+          );
+
+          return;
+
+        }
+
+
+        // -------------------------------------
+        // ตรวจจังหวัด
+        // -------------------------------------
+
+        if (
+          !document.getElementById(
+            "province"
+          ).value
+        ) {
+
+          showError(
+            "กรุณาเลือกจังหวัดที่ต้องการทำงาน"
+          );
+
+          return;
+
+        }
+
+
+        /*
+         * ตอนนี้เราแค่ทดสอบหน้า LIFF
+         *
+         * ยังไม่ส่งข้อมูลไป Google Sheets
+         * เพราะหน้าเว็บอยู่บน GitHub Pages
+         * จึงใช้ google.script.run ไม่ได้
+         */
+
+        showSuccess(
+          "แบบฟอร์มพร้อมใช้งานครับ\n\n" +
+          "ขั้นต่อไปเราจะเชื่อมปุ่มนี้กับ " +
+          "Candidates และ Google Drive"
+        );
+
+      }
+    );
+
+
+    // =========================================
+    // Success
+    // =========================================
+
+    function showSuccess(message) {
+
+      const box =
+        document.getElementById(
+          "result"
+        );
+
+      box.innerHTML =
+        message.replace(
+          /\n/g,
+          "<br>"
+        );
+
+      box.classList.add(
+        "show"
       );
 
-    });
+    }
 
 
-  initLIFF();
+    // =========================================
+    // Error
+    // =========================================
 
-</script>
+    function showError(message) {
+
+      const box =
+        document.getElementById(
+          "error"
+        );
+
+      box.textContent =
+        "❌ " + message;
+
+      box.classList.add(
+        "show"
+      );
+
+    }
+
+
+    // =========================================
+    // Hide Error
+    // =========================================
+
+    function hideError() {
+
+      document
+        .getElementById("error")
+        .classList.remove("show");
+
+    }
+
+
+    // =========================================
+    // Start
+    // =========================================
+
+    initLIFF();
+
+  </script>
 
 </body>
 </html>
