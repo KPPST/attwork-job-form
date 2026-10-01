@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
 
@@ -11,9 +12,12 @@
   <title>ATWORK - สมัครงาน</title>
 
   <!-- LINE LIFF SDK -->
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script
+    src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+  </script>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -23,6 +27,7 @@
       padding: 20px;
       background: #f4f7fb;
       color: #1f2937;
+
       font-family:
         Arial,
         "Noto Sans Thai",
@@ -37,42 +42,70 @@
 
     .card {
       background: #ffffff;
+
       border-radius: 20px;
+
       padding: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
     }
+
+    /* ============================
+       HEADER
+    ============================ */
 
     .brand {
       text-align: center;
+
       color: #123c72;
+
       font-size: 30px;
+
       font-weight: 800;
-      letter-spacing: 0.5px;
     }
 
     .title {
       margin-top: 6px;
+
       text-align: center;
+
       font-size: 22px;
+
       font-weight: 700;
     }
 
     .subtitle {
       margin-top: 8px;
       margin-bottom: 22px;
+
       text-align: center;
+
       color: #6b7280;
+
       font-size: 14px;
+
       line-height: 1.6;
     }
 
+
+    /* ============================
+       STATUS
+    ============================ */
+
     .status {
       margin-bottom: 18px;
-      padding: 10px 12px;
+
+      padding: 11px 12px;
+
       border-radius: 10px;
+
       text-align: center;
+
       font-size: 13px;
+
       background: #f8fafc;
+
       color: #64748b;
     }
 
@@ -86,13 +119,24 @@
       color: #991b1b;
     }
 
+
+    /* ============================
+       PROFILE
+    ============================ */
+
     .profile {
       display: none;
+
       margin-bottom: 20px;
+
       padding: 12px 14px;
+
       border-radius: 12px;
+
       background: #f8fafc;
+
       color: #64748b;
+
       font-size: 13px;
     }
 
@@ -102,21 +146,39 @@
 
     .profile-name {
       color: #123c72;
+
       font-weight: 700;
     }
+
+
+    /* ============================
+       SECTION
+    ============================ */
 
     .section-title {
       margin-top: 26px;
+
       margin-bottom: 14px;
+
       color: #123c72;
+
       font-size: 17px;
+
       font-weight: 700;
     }
 
+
+    /* ============================
+       FORM
+    ============================ */
+
     label {
       display: block;
+
       margin-bottom: 7px;
+
       font-size: 14px;
+
       font-weight: 600;
     }
 
@@ -127,78 +189,155 @@
     input,
     select {
       width: 100%;
+
       height: 48px;
+
       margin-bottom: 16px;
+
       padding: 0 14px;
+
       border: 1px solid #d1d5db;
+
       border-radius: 10px;
+
       background: #ffffff;
+
       color: #111827;
+
       font-size: 15px;
     }
 
     input:focus,
     select:focus {
       outline: none;
+
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+
+      box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
     }
+
+
+    /* ============================
+       RESUME
+    ============================ */
 
     .resume-box {
       padding: 16px;
+
       border: 2px dashed #cbd5e1;
+
       border-radius: 12px;
+
       background: #f8fafc;
     }
 
     .resume-box input[type="file"] {
       height: auto;
+
       margin: 0;
+
       padding: 0;
-      border: 0;
+
+      border: none;
+
       box-shadow: none;
+
       background: transparent;
     }
 
     .file-name {
       margin-top: 9px;
+
       color: #475569;
+
       font-size: 12px;
+
       line-height: 1.5;
+
       word-break: break-word;
     }
 
     .hint {
       margin-top: 8px;
+
       color: #64748b;
+
       font-size: 12px;
+
       line-height: 1.5;
     }
 
+
+    /* ============================
+       BUTTON
+    ============================ */
+
     .submit-btn {
       width: 100%;
+
       height: 50px;
+
       margin-top: 22px;
-      border: 0;
+
+      border: none;
+
       border-radius: 12px;
+
       background: #123c72;
+
       color: #ffffff;
+
       font-size: 16px;
+
       font-weight: 700;
+
       cursor: pointer;
     }
 
     .submit-btn:disabled {
       opacity: 0.5;
+
       cursor: not-allowed;
     }
 
+
+    /* ============================
+       LOADING
+    ============================ */
+
+    .loading {
+      display: none;
+
+      margin-top: 15px;
+
+      text-align: center;
+
+      color: #64748b;
+
+      font-size: 14px;
+    }
+
+    .loading.show {
+      display: block;
+    }
+
+
+    /* ============================
+       MESSAGE
+    ============================ */
+
     .message {
       display: none;
+
       margin-top: 18px;
+
       padding: 15px;
+
       border-radius: 12px;
+
       font-size: 14px;
+
       line-height: 1.7;
     }
 
@@ -208,41 +347,48 @@
 
     .message.success {
       background: #ecfdf5;
+
       color: #166534;
     }
 
     .message.error {
       background: #fef2f2;
+
       color: #991b1b;
     }
 
-    .loading {
-      display: none;
-      margin-top: 15px;
-      text-align: center;
-      color: #64748b;
-      font-size: 14px;
-    }
 
-    .loading.show {
-      display: block;
-    }
+    /* ============================
+       FOOTER
+    ============================ */
 
     .footer-note {
       margin-top: 20px;
+
       text-align: center;
+
       color: #94a3b8;
+
       font-size: 11px;
+
       line-height: 1.6;
     }
+
   </style>
+
 </head>
+
 
 <body>
 
   <div class="container">
 
     <div class="card">
+
+
+      <!-- ============================
+           HEADER
+      ============================ -->
 
       <div class="brand">
         ATWORK
@@ -257,7 +403,10 @@
       </div>
 
 
-      <!-- LINE STATUS -->
+      <!-- ============================
+           LINE STATUS
+      ============================ -->
+
       <div
         id="lineStatus"
         class="status"
@@ -266,23 +415,34 @@
       </div>
 
 
-      <!-- PROFILE -->
+      <!-- ============================
+           PROFILE
+      ============================ -->
+
       <div
         id="profileBox"
         class="profile"
       >
+
         สวัสดีครับ
+
         <span
           id="profileName"
           class="profile-name"
         ></span>
+
       </div>
 
 
-      <!-- FORM -->
+      <!-- ============================
+           FORM
+      ============================ -->
+
       <form id="jobForm">
 
+
         <!-- LINE USER ID -->
+
         <input
           type="hidden"
           id="lineUserId"
@@ -290,9 +450,9 @@
         >
 
 
-        <!-- ============================ -->
-        <!-- ข้อมูลส่วนตัว -->
-        <!-- ============================ -->
+        <!-- ============================
+             PERSONAL INFORMATION
+        ============================ -->
 
         <div class="section-title">
           ข้อมูลส่วนตัว
@@ -300,9 +460,15 @@
 
 
         <label for="name">
+
           ชื่อ-นามสกุล
-          <span class="required">*</span>
+
+          <span class="required">
+            *
+          </span>
+
         </label>
+
 
         <input
           type="text"
@@ -315,9 +481,15 @@
 
 
         <label for="phone">
+
           เบอร์โทรศัพท์
-          <span class="required">*</span>
+
+          <span class="required">
+            *
+          </span>
+
         </label>
+
 
         <input
           type="tel"
@@ -331,9 +503,9 @@
         >
 
 
-        <!-- ============================ -->
-        <!-- ข้อมูลการสมัครงาน -->
-        <!-- ============================ -->
+        <!-- ============================
+             JOB INFORMATION
+        ============================ -->
 
         <div class="section-title">
           ข้อมูลการสมัครงาน
@@ -341,40 +513,56 @@
 
 
         <label for="jobType">
+
           สายงานที่สนใจ
-          <span class="required">*</span>
+
+          <span class="required">
+            *
+          </span>
+
         </label>
+
 
         <select
           id="jobType"
           name="jobType"
           required
         >
+
           <option value="">
             กำลังโหลดสายงาน...
           </option>
+
         </select>
 
 
         <label for="province">
+
           จังหวัดที่ต้องการทำงาน
-          <span class="required">*</span>
+
+          <span class="required">
+            *
+          </span>
+
         </label>
+
 
         <select
           id="province"
           name="province"
           required
         >
+
           <option value="">
             กำลังโหลดจังหวัด...
           </option>
+
         </select>
 
 
-        <!-- ============================ -->
-        <!-- Resume -->
-        <!-- ============================ -->
+        <!-- ============================
+             RESUME
+        ============================ -->
 
         <div class="section-title">
           Resume
@@ -387,12 +575,14 @@
             แนบ Resume
           </label>
 
+
           <input
             type="file"
             id="resume"
             name="resume"
             accept=".pdf,.doc,.docx"
           >
+
 
           <div
             id="fileName"
@@ -401,46 +591,66 @@
             ยังไม่ได้เลือกไฟล์
           </div>
 
+
           <div class="hint">
+
             รองรับ PDF, DOC และ DOCX
+
+            <br>
+
             ขนาดไม่เกิน 5 MB
+
           </div>
 
         </div>
 
 
-        <!-- ============================ -->
-        <!-- Submit -->
-        <!-- ============================ -->
+        <!-- ============================
+             SUBMIT
+        ============================ -->
 
         <button
           type="submit"
           id="submitBtn"
           class="submit-btn"
         >
+
           ส่งใบสมัคร
+
         </button>
+
 
       </form>
 
 
-      <!-- LOADING -->
+      <!-- ============================
+           LOADING
+      ============================ -->
+
       <div
         id="loading"
         class="loading"
       >
+
         กำลังส่งใบสมัคร...
+
       </div>
 
 
-      <!-- SUCCESS -->
+      <!-- ============================
+           SUCCESS
+      ============================ -->
+
       <div
         id="result"
         class="message success"
       ></div>
 
 
-      <!-- ERROR -->
+      <!-- ============================
+           ERROR
+      ============================ -->
+
       <div
         id="error"
         class="message error"
@@ -451,12 +661,14 @@
         ATWORK Recruitment
       </div>
 
+
     </div>
 
   </div>
 
 
   <script>
+
 
     // =================================================
     // CONFIG
@@ -466,13 +678,17 @@
       "2011817085-Mqy2mWhy";
 
 
-    // =================================================
-    // สำคัญมาก
-    // ใส่ URL /exec ของ Google Apps Script
-    // =================================================
+    /*
+     * URL ของ Google Apps Script Web App
+     *
+     * ตัวอย่าง:
+     *
+     * https://script.google.com/macros/s/XXXXXXXX/exec
+     *
+     */
 
     const APPS_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbxV0GeGa3dAAX-OKGmJI8uciHeJ-NnpA3YrKVnA45WZkBQBTnWdV3HcrPUuXYS4NnNB/exec";
+      "ใส่_URL_APPS_SCRIPT_ของคุณ";
 
 
     // =================================================
@@ -484,60 +700,72 @@
         "lineStatus"
       );
 
+
     const profileBox =
       document.getElementById(
         "profileBox"
       );
+
 
     const profileName =
       document.getElementById(
         "profileName"
       );
 
+
     const lineUserId =
       document.getElementById(
         "lineUserId"
       );
+
 
     const jobTypeSelect =
       document.getElementById(
         "jobType"
       );
 
+
     const provinceSelect =
       document.getElementById(
         "province"
       );
+
 
     const resumeInput =
       document.getElementById(
         "resume"
       );
 
+
     const fileName =
       document.getElementById(
         "fileName"
       );
+
 
     const form =
       document.getElementById(
         "jobForm"
       );
 
+
     const submitBtn =
       document.getElementById(
         "submitBtn"
       );
+
 
     const loading =
       document.getElementById(
         "loading"
       );
 
+
     const resultBox =
       document.getElementById(
         "result"
       );
+
 
     const errorBox =
       document.getElementById(
@@ -546,7 +774,7 @@
 
 
     // =================================================
-    // แสดงชื่อ Resume
+    // Resume filename
     // =================================================
 
     resumeInput.addEventListener(
@@ -582,15 +810,20 @@
       try {
 
         await liff.init({
-          liffId: LIFF_ID
+
+          liffId:
+            LIFF_ID
+
         });
 
 
         /*
-         * เปิดจาก LINE App
+         * เปิดใน LINE
          */
 
-        if (liff.isInClient()) {
+        if (
+          liff.isInClient()
+        ) {
 
           lineStatus.textContent =
             "เชื่อมต่อ LINE เรียบร้อยแล้ว";
@@ -602,20 +835,26 @@
 
 
         /*
-         * เปิดจาก Browser ภายนอก
+         * เปิดใน Browser ภายนอก
          */
 
         else {
 
-          if (!liff.isLoggedIn()) {
+          if (
+            !liff.isLoggedIn()
+          ) {
 
             liff.login({
+
               redirectUri:
                 window.location.href
+
             });
 
             return;
+
           }
+
 
           lineStatus.textContent =
             "เข้าสู่ระบบ LINE เรียบร้อยแล้ว";
@@ -626,17 +865,25 @@
         }
 
 
-        // -----------------------------------------
-        // อ่าน Profile
-        // -----------------------------------------
+        /*
+         * อ่าน Profile
+         */
 
         const profile =
           await liff.getProfile();
 
 
+        /*
+         * เก็บ LINE User ID
+         */
+
         lineUserId.value =
           profile.userId || "";
 
+
+        /*
+         * แสดงชื่อ
+         */
 
         profileName.textContent =
           profile.displayName || "";
@@ -658,6 +905,7 @@
         lineStatus.textContent =
           "ไม่สามารถเชื่อมต่อ LINE ได้";
 
+
         lineStatus.className =
           "status error";
 
@@ -672,13 +920,10 @@
 
 
     // =================================================
-    // JSONP loader
-    // ใช้อ่านข้อมูลจาก Apps Script
+    // JSONP Loader
     // =================================================
 
-    function loadJsonp(
-      api
-    ) {
+    function loadJsonp(api) {
 
       return new Promise(
         function(resolve, reject) {
@@ -692,26 +937,7 @@
             );
 
 
-          window[callbackName] =
-            function(data) {
-
-              delete window[
-                callbackName
-              ];
-
-              if (
-                script.parentNode
-              ) {
-
-                script.parentNode.removeChild(
-                  script
-                );
-
-              }
-
-              resolve(data);
-
-            };
+          let finished = false;
 
 
           const script =
@@ -720,8 +946,70 @@
             );
 
 
+          function cleanup() {
+
+            delete window[
+              callbackName
+            ];
+
+
+            if (
+              script.parentNode
+            ) {
+
+              script.parentNode.removeChild(
+                script
+              );
+
+            }
+
+          }
+
+
+          window[callbackName] =
+            function(data) {
+
+              if (finished) {
+                return;
+              }
+
+
+              finished = true;
+
+
+              cleanup();
+
+
+              resolve(data);
+
+            };
+
+
+          script.onerror =
+            function() {
+
+              if (finished) {
+                return;
+              }
+
+
+              finished = true;
+
+
+              cleanup();
+
+
+              reject(
+                new Error(
+                  "ไม่สามารถเชื่อมต่อ Apps Script ได้"
+                )
+              );
+
+            };
+
+
           const separator =
-            APPS_SCRIPT_URL.indexOf("?") >= 0
+            APPS_SCRIPT_URL.includes("?")
               ? "&"
               : "?";
 
@@ -737,32 +1025,6 @@
             );
 
 
-          script.onerror =
-            function() {
-
-              delete window[
-                callbackName
-              ];
-
-              if (
-                script.parentNode
-              ) {
-
-                script.parentNode.removeChild(
-                  script
-                );
-
-              }
-
-              reject(
-                new Error(
-                  "ไม่สามารถเชื่อมต่อ Apps Script ได้"
-                )
-              );
-
-            };
-
-
           document.body.appendChild(
             script
           );
@@ -774,7 +1036,7 @@
 
 
     // =================================================
-    // โหลดสายงาน
+    // Load Job Types
     // =================================================
 
     async function loadJobTypes() {
@@ -796,7 +1058,7 @@
           jobTypes.length === 0
         ) {
 
-          jobTypeSelect.innerHTML =
+          jobTypeSelect.innerHTML +=
             '<option value="">ไม่พบรายการสายงาน</option>';
 
           return;
@@ -832,6 +1094,7 @@
       } catch (error) {
 
         console.error(
+          "Job Types Error:",
           error
         );
 
@@ -845,7 +1108,7 @@
 
 
     // =================================================
-    // โหลดจังหวัด
+    // Load Provinces
     // =================================================
 
     async function loadProvinces() {
@@ -867,7 +1130,7 @@
           provinces.length === 0
         ) {
 
-          provinceSelect.innerHTML =
+          provinceSelect.innerHTML +=
             '<option value="">ไม่พบรายการจังหวัด</option>';
 
           return;
@@ -903,6 +1166,7 @@
       } catch (error) {
 
         console.error(
+          "Province Error:",
           error
         );
 
@@ -916,21 +1180,23 @@
 
 
     // =================================================
-    // Validate Form
+    // Validate
     // =================================================
 
     function validateForm() {
 
       const name =
-        document.getElementById(
-          "name"
-        ).value.trim();
+        document
+          .getElementById("name")
+          .value
+          .trim();
 
 
       const phone =
-        document.getElementById(
-          "phone"
-        ).value.trim();
+        document
+          .getElementById("phone")
+          .value
+          .trim();
 
 
       if (!lineUserId.value) {
@@ -1085,7 +1351,7 @@
 
 
         // ---------------------------------------------
-        // Validate
+        // ตรวจ Form
         // ---------------------------------------------
 
         if (
@@ -1098,7 +1364,7 @@
 
 
         // ---------------------------------------------
-        // ID Token
+        // ตรวจ ID Token
         // ---------------------------------------------
 
         const idToken =
@@ -1117,7 +1383,7 @@
 
 
         // ---------------------------------------------
-        // ข้อมูลฟอร์ม
+        // ข้อมูล
         // ---------------------------------------------
 
         const name =
@@ -1200,7 +1466,7 @@
           ) {
 
             showError(
-              "รองรับเฉพาะไฟล์ PDF, DOC และ DOCX"
+              "รองรับเฉพาะ PDF, DOC และ DOCX"
             );
 
             return;
@@ -1215,17 +1481,21 @@
                 file
               );
 
+
             resumeName =
               file.name;
 
+
             resumeType =
               file.type;
+
 
           } catch (error) {
 
             console.error(
               error
             );
+
 
             showError(
               "ไม่สามารถอ่าน Resume ได้"
@@ -1239,7 +1509,7 @@
 
 
         // ---------------------------------------------
-        // Candidate ID
+        // สร้าง Candidate ID
         // ---------------------------------------------
 
         const candidateId =
@@ -1248,7 +1518,7 @@
 
 
         // ---------------------------------------------
-        // เตรียมข้อมูล
+        // สร้าง POST Data
         // ---------------------------------------------
 
         const params =
@@ -1322,8 +1592,10 @@
         submitBtn.disabled =
           true;
 
+
         submitBtn.textContent =
           "กำลังส่งใบสมัคร...";
+
 
         loading.classList.add(
           "show"
@@ -1331,7 +1603,7 @@
 
 
         // ---------------------------------------------
-        // ส่ง Apps Script
+        // POST Apps Script
         // ---------------------------------------------
 
         try {
@@ -1340,9 +1612,8 @@
             APPS_SCRIPT_URL,
             {
 
-              method: "POST",
-
-              mode: "no-cors",
+              method:
+                "POST",
 
               headers: {
 
@@ -1352,14 +1623,17 @@
               },
 
               body:
-                params.toString()
+                params.toString(),
+
+              mode:
+                "no-cors"
 
             }
           );
 
 
           // -----------------------------------------
-          // แสดงผล
+          // แสดง Success
           // -----------------------------------------
 
           showSuccess(
@@ -1370,18 +1644,21 @@
             candidateId +
             "</strong><br><br>" +
 
-            "ทีมงาน ATWORK จะตรวจสอบข้อมูลและติดต่อกลับครับ"
+            "ขอบคุณที่สมัครงานกับ ATWORK"
 
           );
 
 
-          // ล้างข้อมูลฟอร์ม
+          /*
+           * ไม่ล้าง lineUserId
+           * เพราะยังอยู่ใน LIFF session
+           */
+
           form.reset();
 
 
-          // แต่เก็บ LINE User ID ไว้
           lineUserId.value =
-            "";
+            lineUserId.value;
 
 
           fileName.textContent =
@@ -1410,6 +1687,7 @@
           submitBtn.disabled =
             false;
 
+
           submitBtn.textContent =
             "ส่งใบสมัคร";
 
@@ -1420,7 +1698,7 @@
 
 
     // =================================================
-    // Messages
+    // Success
     // =================================================
 
     function showSuccess(
@@ -1430,12 +1708,17 @@
       resultBox.innerHTML =
         message;
 
+
       resultBox.classList.add(
         "show"
       );
 
     }
 
+
+    // =================================================
+    // Error
+    // =================================================
 
     function showError(
       message
@@ -1444,6 +1727,7 @@
       errorBox.textContent =
         "❌ " + message;
 
+
       errorBox.classList.add(
         "show"
       );
@@ -1451,11 +1735,16 @@
     }
 
 
+    // =================================================
+    // Hide Messages
+    // =================================================
+
     function hideMessages() {
 
       resultBox.classList.remove(
         "show"
       );
+
 
       errorBox.classList.remove(
         "show"
@@ -1477,4 +1766,5 @@
   </script>
 
 </body>
+
 </html>
