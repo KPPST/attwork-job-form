@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ATWORK สมัครงาน</title>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f4f7fb;
+      font-family: Arial, "Noto Sans Thai", sans-serif;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    }
+
+    .brand {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+      color: #123c72;
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 6px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin: 8px 0 24px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .section-title {
+      margin: 24px 0 14px;
+      color: #123c72;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .required {
+      color: #dc2626;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 48px;
+      padding: 0 14px;
+      margin-bottom: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .resume-box {
+      padding: 15px;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .resume-box input {
+      height: auto;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    .hint {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .status {
+      margin-bottom: 18px;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 13px;
+      background: #f8fafc;
+      color: #64748b;
+    }
+
+    button {
+      width: 100%;
+      height: 50px;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 12px;
+      background: #123c72;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="brand">ATWORK</div>
+
+    <div class="title">สมัครงาน</div>
+
+    <div class="subtitle">
+      กรุณากรอกข้อมูลสำหรับสมัครงาน
+    </div>
+
+    <div id="lineStatus" class="status">
+      กำลังเชื่อมต่อ LINE...
+    </div>
+
+    <form id="jobForm">
+
+      <input
+        type="hidden"
+        id="lineUserId"
+        name="lineUserId"
+      >
+
+      <div class="section-title">
+        ข้อมูลส่วนตัว
+      </div>
+
+      <label>
+        ชื่อ-นามสกุล
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="กรอกชื่อ-นามสกุล"
+        required
+      >
+
+      <label>
+        เบอร์โทรศัพท์
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="เช่น 0812345678"
+        maxlength="10"
+        required
+      >
+
+      <div class="section-title">
+        ข้อมูลการสมัครงาน
+      </div>
+
+      <label>
+        สายงานที่สนใจ
+        <span class="required">*</span>
+      </label>
+
+      <select id="jobType" name="jobType" required>
+        <option value="">-- เลือกสายงาน --</option>
+        <option>ช่าง</option>
+        <option>วิศวกร</option>
+        <option>พนักงานผลิต</option>
+        <option>พนักงานคลังสินค้า</option>
+        <option>พนักงานออฟฟิศ</option>
+      </select>
+
+      <label>
+        จังหวัดที่ต้องการทำงาน
+        <span class="required">*</span>
+      </label>
+
+      <select id="province" name="province" required>
+        <option value="">-- เลือกจังหวัด --</option>
+        <option>กรุงเทพมหานคร</option>
+        <option>ชลบุรี</option>
+        <option>ระยอง</option>
+        <option>สมุทรปราการ</option>
+        <option>ฉะเชิงเทรา</option>
+        <option>ปทุมธานี</option>
+      </select>
+
+      <div class="section-title">
+        Resume
+      </div>
+
+      <div class="resume-box">
+        <label>
+          แนบ Resume
+        </label>
+
+        <input
+          type="file"
+          id="resume"
+          name="resume"
+          accept=".pdf,.doc,.docx"
+        >
+
+        <div class="hint">
+          รองรับ PDF, DOC และ DOCX
+        </div>
+      </div>
+
+      <button type="submit">
+        ส่งใบสมัคร
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+  const LIFF_ID = "2011817085-L18ZbOrm";
+
+  async function initLIFF() {
+
+    try {
+
+      await liff.init({
+        liffId: LIFF_ID
+      });
+
+      if (!liff.isLoggedIn()) {
+
+        liff.login();
+
+        return;
+      }
+
+      const profile = await liff.getProfile();
+
+      document.getElementById("lineUserId").value =
+        profile.userId;
+
+      document.getElementById("lineStatus").textContent =
+        "เชื่อมต่อ LINE เรียบร้อยแล้ว";
+
+    } catch (error) {
+
+      console.error(error);
+
+      document.getElementById("lineStatus").textContent =
+        "ไม่สามารถเชื่อมต่อ LINE ได้";
+
+    }
+
+  }
+
+
+  document
+    .getElementById("jobForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert(
+        "ตอนนี้แบบฟอร์มทำงานแล้วครับ\n\n" +
+        "ขั้นต่อไปเราจะเชื่อมปุ่มส่งใบสมัครกับ Candidates"
+      );
+
+    });
+
+
+  initLIFF();
+
+</script>
+
+</body>
+</html>
