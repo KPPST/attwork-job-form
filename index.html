@@ -10,15 +10,23 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>ฝาก Resume | ATWORK</title>
+  <title>
+    ฝาก Resume | ATWORK
+  </title>
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <!-- LINE LIFF SDK -->
+  <script
+    src="https://static.line-scdn.net/liff/edge/2/sdk.js">
+  </script>
+
 
   <style>
 
     * {
       box-sizing: border-box;
     }
+
 
     body {
 
@@ -32,6 +40,7 @@
       background: #f4f8ff;
 
       color: #172033;
+
     }
 
 
@@ -41,9 +50,11 @@
 
       max-width: 520px;
 
-      margin: 0 auto;
+      margin: auto;
 
-      padding: 24px 18px 40px;
+      padding:
+        24px 18px 40px;
+
     }
 
 
@@ -52,6 +63,7 @@
       text-align: center;
 
       margin-bottom: 24px;
+
     }
 
 
@@ -64,6 +76,7 @@
       color: #0a2a5e;
 
       letter-spacing: 1px;
+
     }
 
 
@@ -76,25 +89,29 @@
       font-size: 15px;
 
       line-height: 1.6;
+
     }
 
 
     .card {
 
-      background: white;
+      background: #ffffff;
 
       border-radius: 20px;
 
       padding: 22px;
 
       box-shadow:
-        0 10px 30px rgba(12, 38, 80, 0.08);
+        0 10px 30px
+        rgba(12, 38, 80, 0.08);
+
     }
 
 
     .field {
 
       margin-bottom: 18px;
+
     }
 
 
@@ -107,6 +124,14 @@
       font-size: 14px;
 
       font-weight: 700;
+
+    }
+
+
+    .required {
+
+      color: #d73535;
+
     }
 
 
@@ -116,50 +141,59 @@
 
       width: 100%;
 
-      padding: 13px 14px;
+      padding:
+        13px 14px;
 
-      border: 1px solid #d9e1ec;
+      border:
+        1px solid #d9e1ec;
 
       border-radius: 12px;
 
       font-size: 15px;
 
-      background: white;
+      background: #ffffff;
 
       outline: none;
+
     }
 
 
     input:focus {
 
-      border-color: #4169e1;
+      border-color:
+        #4169e1;
 
       box-shadow:
-        0 0 0 3px rgba(65, 105, 225, 0.08);
+        0 0 0 3px
+        rgba(65, 105, 225, 0.08);
+
     }
 
 
     .file-box {
 
-      border: 1px dashed #b7c5d9;
+      border:
+        1px dashed #b7c5d9;
 
       border-radius: 14px;
 
       padding: 15px;
 
       background: #f8fbff;
+
     }
 
 
     .help {
 
-      margin-top: 7px;
+      margin-top: 8px;
 
       font-size: 12px;
 
       color: #7a8699;
 
-      line-height: 1.5;
+      line-height: 1.6;
+
     }
 
 
@@ -187,6 +221,7 @@
         );
 
       cursor: pointer;
+
     }
 
 
@@ -195,6 +230,7 @@
       opacity: 0.6;
 
       cursor: wait;
+
     }
 
 
@@ -205,6 +241,7 @@
       color: #667085;
 
       padding: 20px 0;
+
     }
 
 
@@ -221,6 +258,7 @@
       margin-top: 18px;
 
       line-height: 1.7;
+
     }
 
 
@@ -229,6 +267,7 @@
       background: #eefaf3;
 
       color: #176b3a;
+
     }
 
 
@@ -237,6 +276,67 @@
       background: #fff1f1;
 
       color: #a32525;
+
+    }
+
+
+    .progress-area {
+
+      display: none;
+
+      margin-top: 20px;
+
+    }
+
+
+    .progress-text {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 13px;
+
+      margin-bottom: 8px;
+
+      color: #667085;
+
+    }
+
+
+    .progress-track {
+
+      width: 100%;
+
+      height: 10px;
+
+      border-radius: 99px;
+
+      background: #e7edf5;
+
+      overflow: hidden;
+
+    }
+
+
+    .progress-bar {
+
+      width: 0%;
+
+      height: 100%;
+
+      border-radius: 99px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #2457d6,
+          #713fc8
+        );
+
+      transition:
+        width 0.25s ease;
+
     }
 
 
@@ -249,12 +349,22 @@
       font-weight: 800;
 
       letter-spacing: 1px;
+
     }
 
 
-    .required {
+    .privacy {
 
-      color: #d73535;
+      margin-top: 16px;
+
+      font-size: 11px;
+
+      color: #8a94a6;
+
+      line-height: 1.6;
+
+      text-align: center;
+
     }
 
   </style>
@@ -267,30 +377,41 @@
 
   <div class="container">
 
+
     <div class="header">
 
       <div class="logo">
-        ATWORK
+        @ATTWORK
       </div>
+
 
       <div class="subtitle">
 
-        ฝาก Resume ไว้กับเรา<br>
+        ฝาก Resume ไว้กับเรา
 
-        เพื่อให้เจ้าหน้าที่นำไปพิจารณาตำแหน่งงานที่เหมาะสม
+        <br>
+
+        เพื่อให้เจ้าหน้าที่ ATTWORK
+        พิจารณาตำแหน่งงานที่เหมาะสม
 
       </div>
 
     </div>
 
+
+    <!-- Loading -->
 
     <div
       id="loading"
       class="loading"
     >
+
       กำลังเตรียมระบบ...
+
     </div>
 
+
+    <!-- Form -->
 
     <div
       id="formCard"
@@ -301,12 +422,20 @@
       <form id="resumeForm">
 
 
+        <!-- Name -->
+
         <div class="field">
 
           <label>
+
             ชื่อ-นามสกุล
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <input
             type="text"
@@ -318,44 +447,66 @@
         </div>
 
 
+        <!-- Phone -->
+
         <div class="field">
 
           <label>
+
             เบอร์โทรศัพท์
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <input
             type="tel"
             id="phone"
             inputmode="numeric"
             placeholder="08XXXXXXXX"
+            maxlength="10"
             required
           >
 
         </div>
 
 
+        <!-- Resume -->
+
         <div class="field">
 
           <label>
+
             Resume
-            <span class="required">*</span>
+
+            <span class="required">
+              *
+            </span>
+
           </label>
+
 
           <div class="file-box">
 
             <input
               type="file"
               id="resume"
-              accept=".pdf,.doc,.docx"
+              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
               required
             >
 
+
             <div class="help">
 
-              รองรับ PDF, DOC, DOCX<br>
-              ขนาดไม่เกิน 5 MB
+              รองรับ PDF, DOC, DOCX,
+              JPG, JPEG และ PNG
+
+              <br>
+
+              ขนาดไฟล์สูงสุด 50 MB
 
             </div>
 
@@ -364,13 +515,59 @@
         </div>
 
 
+        <!-- Submit -->
+
         <button
           type="submit"
-          class="button"
           id="submitButton"
+          class="button"
         >
+
           📄 ฝาก Resume
+
         </button>
+
+
+        <!-- Progress -->
+
+        <div
+          id="progressArea"
+          class="progress-area"
+        >
+
+          <div class="progress-text">
+
+            <span id="progressMessage">
+              กำลังอัปโหลด...
+            </span>
+
+
+            <span id="progressPercent">
+              0%
+            </span>
+
+          </div>
+
+
+          <div class="progress-track">
+
+            <div
+              id="progressBar"
+              class="progress-bar"
+            >
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="privacy">
+
+          Resume จะถูกเก็บไว้ในระบบของ ATWORK
+          สำหรับเจ้าหน้าที่ที่เกี่ยวข้องเท่านั้น
+
+        </div>
 
 
       </form>
@@ -378,22 +575,33 @@
     </div>
 
 
+    <!-- Success -->
+
     <div
       id="successMessage"
       class="message success"
     >
 
       <div style="font-size:32px;">
+
         ✅
+
       </div>
+
 
       <strong>
+
         ฝาก Resume เรียบร้อยแล้ว
+
       </strong>
 
+
       <div>
+
         หมายเลขผู้สมัคร
+
       </div>
+
 
       <div
         id="candidateId"
@@ -401,13 +609,18 @@
       >
       </div>
 
+
       <div style="margin-top:10px;">
-        ทาง ATWORK จะเก็บ Resume
-        ไว้สำหรับพิจารณาตำแหน่งงานที่เหมาะสม
+
+        ขอบคุณที่ฝาก Resume
+        กับ ATTWORK
+
       </div>
 
     </div>
 
+
+    <!-- Error -->
 
     <div
       id="errorMessage"
@@ -415,8 +628,11 @@
     >
 
       <strong>
+
         ไม่สามารถฝาก Resume ได้
+
       </strong>
+
 
       <div
         id="errorText"
@@ -432,35 +648,71 @@
 
 <script>
 
+  /* =================================================
+     CONFIG
+     ================================================= */
+
+
   const LIFF_ID =
     "2011817085-Mqy2mWhy";
 
 
+  /*
+   * เปลี่ยนตรงนี้เป็น URL Web App
+   */
   const APPS_SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbxV0GeGa3dAAX-OKGmJI8uciHeJ-NnpA3YrKVnA45WZkBQBTnWdV3HcrPUuXYS4NnNB/exec";
 
 
+  /*
+   * ต้องตรงกับฝั่ง Code.gs
+   */
+  const CHUNK_SIZE =
+    2 * 1024 * 1024;
+
+
+  /*
+   * 50 MB
+   */
+  const MAX_FILE_SIZE =
+    50 * 1024 * 1024;
+
+
+  /*
+   * LINE User ID
+   */
   let lineUserId = "";
 
 
-  /********************************
-   * INIT LIFF
-   ********************************/
+  /* =================================================
+     INIT LIFF
+     ================================================= */
 
   async function initLIFF() {
 
     try {
 
+
       await liff.init({
-        liffId: LIFF_ID
+
+        liffId:
+          LIFF_ID
+
       });
 
 
-      if (!liff.isLoggedIn()) {
+      /*
+       * Login
+       */
+      if (
+        !liff.isLoggedIn()
+      ) {
 
         liff.login({
+
           redirectUri:
             window.location.href
+
         });
 
         return;
@@ -468,6 +720,9 @@
       }
 
 
+      /*
+       * Profile
+       */
       const profile =
         await liff.getProfile();
 
@@ -476,19 +731,43 @@
         profile.userId || "";
 
 
-      document.getElementById(
-        "loading"
-      ).style.display = "none";
+      if (!lineUserId) {
+
+        throw new Error(
+          "ไม่สามารถอ่าน LINE User ID ได้"
+        );
+
+      }
 
 
-      document.getElementById(
-        "formCard"
-      ).style.display = "block";
+      /*
+       * แสดงฟอร์ม
+       */
+      document
+        .getElementById("loading")
+        .style.display =
+        "none";
+
+
+      document
+        .getElementById("formCard")
+        .style.display =
+        "block";
 
 
     } catch (error) {
 
-      console.error(error);
+
+      console.error(
+        error
+      );
+
+
+      document
+        .getElementById("loading")
+        .style.display =
+        "none";
+
 
       showError(
         "ไม่สามารถเชื่อมต่อ LINE ได้"
@@ -499,38 +778,149 @@
   }
 
 
-  /********************************
-   * FILE TO BASE64
-   ********************************/
+  /* =================================================
+     GENERATE CANDIDATE ID
+     ================================================= */
 
-  function fileToBase64(file) {
+  function generateCandidateId() {
+
+    const timestamp =
+      Date.now();
+
+
+    const random =
+      Math.floor(
+        Math.random() *
+        10000
+      )
+      .toString()
+      .padStart(
+        4,
+        "0"
+      );
+
+
+    return (
+      "C" +
+      timestamp +
+      random
+    );
+
+  }
+
+
+  /* =================================================
+     POST FORM TO APPS SCRIPT
+     ================================================= */
+
+  async function postForm(
+    data
+  ) {
+
+    /*
+     * ใช้ no-cors เพราะ GitHub Pages
+     * และ Apps Script อยู่คนละ origin
+     */
+    await fetch(
+
+      APPS_SCRIPT_URL,
+
+      {
+
+        method:
+          "POST",
+
+        headers: {
+
+          "Content-Type":
+            "application/x-www-form-urlencoded;charset=UTF-8"
+
+        },
+
+        body:
+          new URLSearchParams(
+            data
+          ).toString(),
+
+        mode:
+          "no-cors"
+
+      }
+
+    );
+
+  }
+
+
+  /* =================================================
+     FILE -> BASE64
+     ================================================= */
+
+  function sliceToBase64(
+    blob
+  ) {
 
     return new Promise(
       function(resolve, reject) {
+
 
         const reader =
           new FileReader();
 
 
-        reader.onload = function() {
-
-          resolve(reader.result);
-
-        };
+        reader.onload =
+          function() {
 
 
-        reader.onerror = function() {
-
-          reject(
-            new Error(
-              "อ่านไฟล์ไม่ได้"
-            )
-          );
-
-        };
+            const result =
+              String(
+                reader.result || ""
+              );
 
 
-        reader.readAsDataURL(file);
+            const commaIndex =
+              result.indexOf(",");
+
+
+            if (
+              commaIndex === -1
+            ) {
+
+              reject(
+                new Error(
+                  "อ่านข้อมูลไฟล์ไม่สำเร็จ"
+                )
+              );
+
+              return;
+
+            }
+
+
+            resolve(
+              result.substring(
+                commaIndex + 1
+              )
+            );
+
+          };
+
+
+        reader.onerror =
+          function() {
+
+            reject(
+              new Error(
+                "อ่านไฟล์ไม่ได้"
+              )
+            );
+
+          };
+
+
+        reader.readAsDataURL(
+          blob
+        );
 
       }
     );
@@ -538,11 +928,301 @@
   }
 
 
-  /********************************
-   * SHOW ERROR
-   ********************************/
+  /* =================================================
+     JSONP STATUS
+     ================================================= */
 
-  function showError(message) {
+  function getUploadStatus(
+    candidateId
+  ) {
+
+    return new Promise(
+      function(resolve, reject) {
+
+
+        const callbackName =
+          "attwork_status_" +
+          Date.now() +
+          "_" +
+          Math.floor(
+            Math.random() *
+            100000
+          );
+
+
+        const script =
+          document.createElement(
+            "script"
+          );
+
+
+        let finished =
+          false;
+
+
+        function cleanup() {
+
+          try {
+
+            delete window[
+              callbackName
+            ];
+
+          } catch (ignore) {
+          }
+
+
+          if (
+            script.parentNode
+          ) {
+
+            script.parentNode
+              .removeChild(
+                script
+              );
+
+          }
+
+        }
+
+
+        window[
+          callbackName
+        ] =
+          function(data) {
+
+
+            if (finished) {
+              return;
+            }
+
+
+            finished =
+              true;
+
+
+            cleanup();
+
+
+            resolve(
+              data
+            );
+
+          };
+
+
+        script.onerror =
+          function() {
+
+
+            if (finished) {
+              return;
+            }
+
+
+            finished =
+              true;
+
+
+            cleanup();
+
+
+            reject(
+              new Error(
+                "ไม่สามารถตรวจสอบสถานะได้"
+              )
+            );
+
+          };
+
+
+        const separator =
+          APPS_SCRIPT_URL.includes("?")
+            ? "&"
+            : "?";
+
+
+        script.src =
+          APPS_SCRIPT_URL +
+          separator +
+          "api=uploadStatus" +
+          "&candidateId=" +
+          encodeURIComponent(
+            candidateId
+          ) +
+          "&callback=" +
+          encodeURIComponent(
+            callbackName
+          ) +
+          "&t=" +
+          Date.now();
+
+
+        document.body.appendChild(
+          script
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =================================================
+     WAIT STATUS
+     ================================================= */
+
+  async function waitForStatus(
+    candidateId,
+    condition,
+    maxAttempts = 60
+  ) {
+
+    for (
+      let i = 0;
+      i < maxAttempts;
+      i++
+    ) {
+
+      try {
+
+        const status =
+          await getUploadStatus(
+            candidateId
+          );
+
+
+        if (
+          condition(
+            status
+          )
+        ) {
+
+          return status;
+
+        }
+
+
+        if (
+          status &&
+          status.status ===
+          "ERROR"
+        ) {
+
+          return status;
+
+        }
+
+
+      } catch (error) {
+
+        console.log(
+          error
+        );
+
+      }
+
+
+      await sleep(
+        1200
+      );
+
+    }
+
+
+    throw new Error(
+      "ระบบใช้เวลานานกว่าปกติ กรุณาลองใหม่อีกครั้ง"
+    );
+
+  }
+
+
+  /* =================================================
+     SLEEP
+     ================================================= */
+
+  function sleep(
+    ms
+  ) {
+
+    return new Promise(
+      function(resolve) {
+
+        setTimeout(
+          resolve,
+          ms
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =================================================
+     PROGRESS
+     ================================================= */
+
+  function updateProgress(
+    uploadedBytes,
+    totalBytes,
+    message
+  ) {
+
+    const percent =
+      totalBytes > 0
+
+        ? Math.min(
+            100,
+            Math.round(
+              (
+                uploadedBytes /
+                totalBytes
+              ) *
+              100
+            )
+          )
+
+        : 0;
+
+
+    document
+      .getElementById(
+        "progressBar"
+      )
+      .style.width =
+      percent + "%";
+
+
+    document
+      .getElementById(
+        "progressPercent"
+      )
+      .textContent =
+      percent + "%";
+
+
+    if (message) {
+
+      document
+        .getElementById(
+          "progressMessage"
+        )
+        .textContent =
+        message;
+
+    }
+
+  }
+
+
+  /* =================================================
+     SHOW ERROR
+     ================================================= */
+
+  function showError(
+    message
+  ) {
 
     const box =
       document.getElementById(
@@ -552,44 +1232,58 @@
 
     document.getElementById(
       "errorText"
-    ).textContent = message;
+    ).textContent =
+      message;
 
 
-    box.style.display = "block";
+    box.style.display =
+      "block";
 
   }
 
 
-  /********************************
-   * SUBMIT
-   ********************************/
+  /* =================================================
+     SUBMIT
+     ================================================= */
 
   document
-    .getElementById("resumeForm")
+    .getElementById(
+      "resumeForm"
+    )
     .addEventListener(
       "submit",
       async function(event) {
+
 
         event.preventDefault();
 
 
         const name =
           document
-            .getElementById("name")
+            .getElementById(
+              "name"
+            )
             .value
             .trim();
 
 
         const phone =
           document
-            .getElementById("phone")
+            .getElementById(
+              "phone"
+            )
             .value
-            .replace(/\D/g, "");
+            .replace(
+              /\D/g,
+              ""
+            );
 
 
         const resume =
           document
-            .getElementById("resume")
+            .getElementById(
+              "resume"
+            )
             .files[0];
 
 
@@ -601,13 +1295,13 @@
 
         document.getElementById(
           "errorMessage"
-        ).style.display = "none";
+        ).style.display =
+          "none";
 
 
-        // ----------------------
-        // ตรวจชื่อ
-        // ----------------------
-
+        /*
+         * ชื่อ
+         */
         if (!name) {
 
           showError(
@@ -619,11 +1313,14 @@
         }
 
 
-        // ----------------------
-        // ตรวจเบอร์
-        // ----------------------
-
-        if (!/^0\d{9}$/.test(phone)) {
+        /*
+         * เบอร์
+         */
+        if (
+          !/^0\d{9}$/.test(
+            phone
+          )
+        ) {
 
           showError(
             "กรุณากรอกเบอร์โทรศัพท์ 10 หลัก"
@@ -634,10 +1331,9 @@
         }
 
 
-        // ----------------------
-        // ตรวจ Resume
-        // ----------------------
-
+        /*
+         * File
+         */
         if (!resume) {
 
           showError(
@@ -649,17 +1345,16 @@
         }
 
 
-        // ----------------------
-        // จำกัดขนาด 5 MB
-        // ----------------------
-
+        /*
+         * Size
+         */
         if (
           resume.size >
-          5 * 1024 * 1024
+          MAX_FILE_SIZE
         ) {
 
           showError(
-            "Resume ต้องมีขนาดไม่เกิน 5 MB"
+            "Resume ต้องมีขนาดไม่เกิน 50 MB"
           );
 
           return;
@@ -667,27 +1362,33 @@
         }
 
 
-        // ----------------------
-        // ตรวจนามสกุล
-        // ----------------------
-
+        /*
+         * Extension
+         */
         const fileName =
           resume.name.toLowerCase();
 
 
-        const allowed =
+        const allowedExtensions =
           [
+
             ".pdf",
             ".doc",
-            ".docx"
+            ".docx",
+            ".jpg",
+            ".jpeg",
+            ".png"
+
           ];
 
 
         const valid =
-          allowed.some(
-            function(ext) {
+          allowedExtensions.some(
+            function(extension) {
 
-              return fileName.endsWith(ext);
+              return fileName.endsWith(
+                extension
+              );
 
             }
           );
@@ -696,7 +1397,7 @@
         if (!valid) {
 
           showError(
-            "รองรับเฉพาะไฟล์ PDF, DOC และ DOCX"
+            "รองรับเฉพาะ PDF, DOC, DOCX, JPG, JPEG และ PNG"
           );
 
           return;
@@ -704,131 +1405,377 @@
         }
 
 
-        // ----------------------
-        // เริ่มส่ง
-        // ----------------------
+        /*
+         * Candidate ID
+         */
+        const candidateId =
+          generateCandidateId();
 
-        button.disabled = true;
+
+        /*
+         * Total chunks
+         */
+        const totalChunks =
+          Math.ceil(
+            resume.size /
+            CHUNK_SIZE
+          );
+
+
+        /*
+         * UI
+         */
+        button.disabled =
+          true;
+
 
         button.textContent =
-          "กำลังฝาก Resume...";
+          "กำลังเตรียมการอัปโหลด...";
+
+
+        document
+          .getElementById(
+            "progressArea"
+          )
+          .style.display =
+          "block";
+
+
+        updateProgress(
+          0,
+          resume.size,
+          "กำลังเตรียมการอัปโหลด..."
+        );
 
 
         try {
 
-          const base64 =
-            await fileToBase64(
-              resume
+
+          /* =========================================
+             START
+             ========================================= */
+
+          await postForm({
+
+            action:
+              "startUpload",
+
+            candidateId:
+              candidateId,
+
+            lineUserId:
+              lineUserId,
+
+            name:
+              name,
+
+            phone:
+              phone,
+
+            resumeName:
+              resume.name,
+
+            resumeType:
+              resume.type || "",
+
+            totalBytes:
+              resume.size,
+
+            totalChunks:
+              totalChunks
+
+          });
+
+
+          /*
+           * รอให้ Server เตรียม session
+           */
+          const startStatus =
+            await waitForStatus(
+
+              candidateId,
+
+              function(status) {
+
+                return (
+                  status.status ===
+                    "UPLOADING" ||
+
+                  status.status ===
+                    "COMPLETE"
+                );
+
+              },
+
+              30
+
             );
 
 
-          const params =
-            new URLSearchParams();
+          if (
+            startStatus.status ===
+            "ERROR"
+          ) {
 
+            throw new Error(
+              startStatus.message ||
+              "ไม่สามารถเริ่มอัปโหลดได้"
+            );
 
-          params.append(
-            "action",
-            "submitResume"
-          );
-
-
-          params.append(
-            "lineUserId",
-            lineUserId
-          );
-
-
-          params.append(
-            "name",
-            name
-          );
-
-
-          params.append(
-            "phone",
-            phone
-          );
-
-
-          params.append(
-            "resumeName",
-            resume.name
-          );
-
-
-          params.append(
-            "resumeType",
-            resume.type
-          );
-
-
-          params.append(
-            "resumeBase64",
-            base64
-          );
+          }
 
 
           /*
-           * ใช้ no-cors เพราะ GitHub Pages
-           * กับ Apps Script อยู่คนละโดเมน
+           * ถ้าเสร็จไปแล้ว
            */
+          if (
+            startStatus.status ===
+            "COMPLETE"
+          ) {
 
-          await fetch(
-            APPS_SCRIPT_URL,
-            {
-              method: "POST",
+            finishSuccess(
+              candidateId
+            );
 
-              headers: {
-                "Content-Type":
-                  "application/x-www-form-urlencoded;charset=UTF-8"
+            return;
+
+          }
+
+
+          /* =========================================
+             UPLOAD CHUNKS
+             ========================================= */
+
+          for (
+            let chunkIndex = 0;
+            chunkIndex < totalChunks;
+            chunkIndex++
+          ) {
+
+
+            /*
+             * Start / End
+             */
+            const start =
+              chunkIndex *
+              CHUNK_SIZE;
+
+
+            const end =
+              Math.min(
+                start +
+                CHUNK_SIZE,
+
+                resume.size
+              );
+
+
+            /*
+             * Slice
+             */
+            const chunk =
+              resume.slice(
+                start,
+                end
+              );
+
+
+            /*
+             * Base64
+             */
+            updateProgress(
+
+              start,
+
+              resume.size,
+
+              "กำลังเตรียมไฟล์ส่วนที่ " +
+              (chunkIndex + 1) +
+              "/" +
+              totalChunks
+
+            );
+
+
+            const chunkBase64 =
+              await sliceToBase64(
+                chunk
+              );
+
+
+            /*
+             * ส่ง Chunk
+             */
+            await postForm({
+
+              action:
+                "uploadChunk",
+
+              candidateId:
+                candidateId,
+
+              chunkIndex:
+                chunkIndex,
+
+              chunkBase64:
+                chunkBase64
+
+            });
+
+
+            /*
+             * รอ Server บันทึก chunk
+             */
+            const chunkStatus =
+              await waitForStatus(
+
+                candidateId,
+
+                function(status) {
+
+                  return (
+
+                    status.status ===
+                      "COMPLETE" ||
+
+                    Number(
+                      status.uploadedChunks ||
+                      0
+                    ) >=
+                      chunkIndex + 1
+
+                  );
+
+                },
+
+                60
+
+              );
+
+
+            if (
+              chunkStatus.status ===
+              "ERROR"
+            ) {
+
+              throw new Error(
+                chunkStatus.message ||
+                "อัปโหลดไฟล์ไม่สำเร็จ"
+              );
+
+            }
+
+
+            /*
+             * Update UI
+             */
+            updateProgress(
+
+              Number(
+                chunkStatus.uploadedBytes ||
+                end
+              ),
+
+              resume.size,
+
+              "อัปโหลดแล้ว " +
+              (chunkIndex + 1) +
+              "/" +
+              totalChunks +
+              " ส่วน"
+
+            );
+
+
+            /*
+             * ถ้าเสร็จแล้ว
+             */
+            if (
+              chunkStatus.status ===
+              "COMPLETE"
+            ) {
+
+              break;
+
+            }
+
+          }
+
+
+          /* =========================================
+             FINAL STATUS
+             ========================================= */
+
+          const finalStatus =
+            await waitForStatus(
+
+              candidateId,
+
+              function(status) {
+
+                return (
+                  status.status ===
+                  "COMPLETE"
+                );
+
               },
 
-              body:
-                params.toString(),
+              60
 
-              mode: "no-cors"
-            }
-          );
+            );
+
+
+          if (
+            finalStatus.status !==
+            "COMPLETE"
+          ) {
+
+            throw new Error(
+              finalStatus.message ||
+              "ยังไม่สามารถบันทึก Resume ได้"
+            );
+
+          }
 
 
           /*
-           * เนื่องจาก no-cors
-           * เราอ่าน response จาก Apps Script
-           * ไม่ได้ แต่ request ถูกส่งไปแล้ว
+           * Success
            */
+          updateProgress(
 
-          document.getElementById(
-            "formCard"
-          ).style.display = "none";
+            resume.size,
 
+            resume.size,
 
-          document.getElementById(
-            "candidateId"
-          ).textContent =
-            "กำลังสร้างหมายเลขผู้สมัคร";
+            "อัปโหลดสำเร็จ"
 
-
-          document.getElementById(
-            "successMessage"
-          ).style.display = "block";
+          );
 
 
-          button.disabled = false;
+          finishSuccess(
+            candidateId
+          );
 
 
         } catch (error) {
 
-          console.error(error);
+
+          console.error(
+            error
+          );
 
 
-          button.disabled = false;
+          button.disabled =
+            false;
+
 
           button.textContent =
             "📄 ฝาก Resume";
 
 
           showError(
-            "ไม่สามารถส่งข้อมูลได้ กรุณาลองใหม่"
+            error.message ||
+            "ไม่สามารถฝาก Resume ได้ กรุณาลองใหม่"
           );
 
         }
@@ -837,13 +1784,48 @@
     );
 
 
-  /********************************
-   * START
-   ********************************/
+  /* =================================================
+     SUCCESS
+     ================================================= */
+
+  function finishSuccess(
+    candidateId
+  ) {
+
+    document
+      .getElementById(
+        "formCard"
+      )
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById(
+        "candidateId"
+      )
+      .textContent =
+      candidateId;
+
+
+    document
+      .getElementById(
+        "successMessage"
+      )
+      .style.display =
+      "block";
+
+  }
+
+
+  /* =================================================
+     START
+     ================================================= */
 
   initLIFF();
 
 </script>
+
 
 </body>
 
